@@ -36,7 +36,7 @@ app.get('/todos', (req, res) => {
             res.send({todos});
         }, (rej) => {
             res.status(400).send(err);
-        })
+        });
 });
 
 app.listen(3000, () => {
