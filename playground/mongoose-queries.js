@@ -1,7 +1,15 @@
-const { mongoose } = require('./../server/db/mongoose');
-const { Todo } = require('./../server/models/todo');
-const { User } = require('./../server/models/user');
-const { ObjectID } = require('mongodb');
+const {
+    mongoose
+} = require('./../server/db/mongoose');
+const {
+    Todo
+} = require('./../server/models/todo');
+const {
+    User
+} = require('./../server/models/user');
+const {
+    ObjectID
+} = require('mongodb');
 
 // var id = '59a42a76e1769d54025d14c6';
 
@@ -32,13 +40,27 @@ const { ObjectID } = require('mongodb');
 
 var userId = '59a075a83ccafc803be50949';
 
-User.findById(userId).then((user) => {
-    //Query Works, no User
-    if(!user) {
-        return console.log('User Not Found');
+// User.findById(userId).then((user) => {
+//     //Query Works, no User
+//     if (!user) {
+//         return console.log('User Not Found');
+//     }
+//     //Query Works, print user
+//     console.log('User:', user);
+// }).catch((e) => {
+//     console.log(e);
+// });
+
+User.findById(userId).then(
+    (user) => {
+        //Query Works, no User
+        if (!user) {
+            return console.log('User Not Found');
+        }
+        //Query Works, print user
+        console.log('User:', user);
+    },
+    (err) => {
+        console.log(err);
     }
-    //Query Works, print user
-    console.log('User:', user);
-}).catch((e) => {
-    console.log(e);
-})
+)
